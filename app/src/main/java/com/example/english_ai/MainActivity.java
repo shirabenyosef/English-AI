@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(this, Activity2.class);
+                            startActivity(intent);
                         } else {
                             String error = task.getException() != null ? task.getException().getMessage() : "שגיאה בהתחברות";
                             Toast.makeText(MainActivity.this, "שגיאה: " + error, Toast.LENGTH_LONG).show();
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             if (firebaseUser != null) {
                                 saveUserToFirestore(firebaseUser.getUid(), fullName, email);
+                                Toast.makeText(this, "נרשמת בהצלחה, לחץ על התחברות", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             String error = task.getException() != null ? task.getException().getMessage() : "שגיאה בהרשמה";

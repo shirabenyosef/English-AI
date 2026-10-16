@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ConstraintLayout: רכיב הפריסה הראשי (Main Layout Container).
+    מאפשר מיקום גמיש ומדויק של רכיבים על המסך יחסית אחד לשני ולגבולות המסך,
+    כך שהעיצוב ייראה טוב ובצורה אחידה בכל גדלי המכשירים.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_english"
+    tools:context=".Activity2">
+
+    <!--
+        1. כותרת המסך (TextView):
+        מציגה את כותרת המבחן/מסך באופן בולט וממורכז למעלה.
+    -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="English Level Test"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#0D1B2A"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp" />
+
+    <!--
+        2. תיאור השאלה (TextView):
+        מציג את ניסוח השאלה באנגלית בצורה ברורה וקריאה מעל אפשרויות הבחירה.
+    -->
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1. Choose the correct word:\n'She ____ to the library every Sunday.'"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1B263B"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp" />
+
+    <!--
+        3. קבוצת כפתורי בחירה (RadioGroup):
+        מאגדת בתוכה רכיבי RadioButton ומבטיחה שניתן לבחור תשובה אחת בלבד (Single Selection).
+        קיבלנו צבע טקסט כהה (`#0D1B2A`) כדי שיהיה קריא וברור על רקע התמונה.
+    -->
+    <RadioGroup
+        android:id="@+id/rgOptions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp">
+
+        <!-- אפשרות תשובה א' -->
+        <RadioButton
+            android:id="@+id/rbOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="go"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D1B2A"
+            android:padding="10dp" />
+
+        <!-- אפשרות תשובה ב' -->
+        <RadioButton
+            android:id="@+id/rbOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="goes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D1B2A"
+            android:padding="10dp" />
+
+        <!-- אפשרות תשובה ג' -->
+        <RadioButton
+            android:id="@+id/rbOption3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="going"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D1B2A"
+            android:padding="10dp" />
+
+        <!-- אפשרות תשובה ד' -->
+        <RadioButton
+            android:id="@+id/rbOption4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="gone"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D1B2A"
+            android:padding="10dp" />
+
+    </RadioGroup>
+
+    <!--
+        4. כפתור מעבר לשאלה הבאה (Button):
+        מאפשר למשתמש להתקדם במבחן לאחר שבחר את התשובה שלו.
+    -->
+    <Button
+        android:id="@+id/btnNextQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Next Question"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/rgOptions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="40dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
