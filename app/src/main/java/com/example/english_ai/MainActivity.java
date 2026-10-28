@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvToggleMode = findViewById(R.id.tvToggleMode);
 
-        // מאזינים לבלחיצות
+        // מאזינים ללחיצות
         btnSubmit.setOnClickListener(v -> handleAuthentication());
         tvToggleMode.setOnClickListener(v -> toggleMode());
     }
@@ -74,26 +74,32 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (isLoginMode) {
-            // התחברות
+            // התחברות (משתמש קיים) -> עובר ישר למסך הבית!
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(this, level_test.class);
+                            Toast.makeText(MainActivity.this, "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             String error = task.getException() != null ? task.getException().getMessage() : "שגיאה בהתחברות";
                             Toast.makeText(MainActivity.this, "שגיאה: " + error, Toast.LENGTH_LONG).show();
                         }
                     });
         } else {
-            // הרשמה
+            // הרשמה (משתמש חדש) -> עובר למבחן רמה!
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             if (firebaseUser != null) {
                                 saveUserToFirestore(firebaseUser.getUid(), fullName, email);
-                                Toast.makeText(this, "נרשמת בהצלחה, לחץ על התחברות", Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(this, "נרשמת בהצלחה! עובר למבחן רמה", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MainActivity.this, level_test.class);
+                                startActivity(intent);
+                                finish();
                             }
                         } else {
                             String error = task.getException() != null ? task.getException().getMessage() : "שגיאה בהרשמה";
@@ -109,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
         userMap.put("fullName", fullName);
         userMap.put("email", email);
         userMap.put("createdAt", System.currentTimeMillis());
+        userMap.put("levelTestCompleted", false);
 
-        db.collection("Users").document(uid)
+        db.collection("users").document(uid)
                 .set(userMap)
-                .addOnSuccessListener(aVoid -> Toast.makeText(MainActivity.this, "הרשמה הושלמה!", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e -> Toast.makeText(MainActivity.this, "שגיאה בשמירת נתונים: " + e.getMessage(), Toast.LENGTH_LONG).show());
     }
 
