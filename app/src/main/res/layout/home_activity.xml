@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RelativeLayout: מסדר את הרכיבים במסך באופן יחסי אחד לשני או למסך -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/photo"
+    tools:context=".MainActivity">
+
+    <!-- ScrollView: מאפשר גלילה אנכית למקרה שהמסך קטן או שהמכשיר במצב אופקי -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <!-- LinearLayout אנכי: מסדר את הכותרת והכרטיסייה במרכז המסך -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- כותרת ראשית של האפליקציה -->
+
+            <!-- CardView: כרטיסייה מעוצבת בצבע ורוד-לבן עדין במרכז המסך -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="English-AI"
+                android:textColor="#AD1457"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#FFF0F5"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center"
+                        android:text="מסך הבית"
+                        android:textColor="#880E4F"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:gravity="center"
+                        android:text="בחר את הנושא שברצונך לתרגל:"
+                        android:textColor="#AD1457"
+                        android:textSize="15sp" />
+
+                    <!-- כפתור אוצר מילים -->
+                    <Button
+                        android:id="@+id/btnVocabulary"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="#E91E63"
+                        android:text="אוצר מילים"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:cornerRadius="12dp" />
+
+                    <!-- כפתור דקדוק -->
+                    <Button
+                        android:id="@+id/btnGrammar"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="#E91E63"
+                        android:text="דקדוק"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:cornerRadius="12dp" />
+
+                    <!-- כפתור כתיבה -->
+                    <Button
+                        android:id="@+id/btnWriting"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:backgroundTint="#E91E63"
+                        android:text="כתיבה"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:cornerRadius="12dp" />
+
+                    <!-- כפתור היסטוריה והתקדמות -->
+                    <Button
+                        android:id="@+id/btnProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:backgroundTint="#E91E63"
+                        android:text="היסטוריה והתקדמות"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:cornerRadius="12dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

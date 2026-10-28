@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(this, Activity2.class);
+                            Intent intent = new Intent(this, level_test.class);
                             startActivity(intent);
                         } else {
                             String error = task.getException() != null ? task.getException().getMessage() : "שגיאה בהתחברות";

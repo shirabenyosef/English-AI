@@ -3,32 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home"
+    android:background="@drawable/bg_welcome"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- כותרת האפליקציה -->
-        <TextView
-            android:id="@+id/tvAppTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="English-AI"
-            android:textColor="#1E293B"
-            android:textSize="38sp"
-            android:textStyle="bold" />
-
-        <!-- כרטיסיית הטופס -->
+        <!-- כרטיסיית הטופס - ממוקמת במרכז ומעוצבת בורוד-לבן עדין -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardBackgroundColor="#FFF0F5"
             app:cardCornerRadius="24dp"
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
@@ -39,14 +28,16 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
+                <!-- כותרת ממוכזת באמצע -->
                 <TextView
                     android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
+                    android:gravity="center"
                     android:text="התחברות"
-                    android:textColor="#0F172A"
-                    android:textSize="22sp"
+                    android:textColor="#AD1457"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <!-- שדה שם מלא (מופיע רק בהרשמה) -->
@@ -61,13 +52,16 @@
                     app:boxCornerRadiusBottomEnd="14dp"
                     app:boxCornerRadiusBottomStart="14dp"
                     app:boxCornerRadiusTopEnd="14dp"
-                    app:boxCornerRadiusTopStart="14dp">
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxStrokeColor="#E91E63"
+                    app:hintTextColor="#E91E63">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etFullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:textColor="#1D2A44" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- שדה אימייל -->
@@ -80,13 +74,16 @@
                     app:boxCornerRadiusBottomEnd="14dp"
                     app:boxCornerRadiusBottomStart="14dp"
                     app:boxCornerRadiusTopEnd="14dp"
-                    app:boxCornerRadiusTopStart="14dp">
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxStrokeColor="#E91E63"
+                    app:hintTextColor="#E91E63">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textEmailAddress"
+                        android:textColor="#1D2A44" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- שדה סיסמה -->
@@ -100,13 +97,16 @@
                     app:boxCornerRadiusBottomStart="14dp"
                     app:boxCornerRadiusTopEnd="14dp"
                     app:boxCornerRadiusTopStart="14dp"
+                    app:boxStrokeColor="#E91E63"
+                    app:hintTextColor="#E91E63"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:textColor="#1D2A44" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- כפתור פעולה -->
@@ -115,12 +115,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/btn_rounded"
+                    android:backgroundTint="#E91E63"
                     android:text="התחבר"
                     android:textColor="#FFFFFF"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@null" />
+                    app:cornerRadius="14dp" />
 
                 <!-- מעבר בין התחברות להרשמה -->
                 <TextView
@@ -130,7 +130,7 @@
                     android:layout_gravity="center"
                     android:padding="8dp"
                     android:text="אין לך חשבון? הרשם כאן"
-                    android:textColor="#2563EB"
+                    android:textColor="#880E4F"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 

@@ -21,15 +21,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity2"
+            android:name=".HomeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Activity3"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Activitymain"
+            android:name=".level_test"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
